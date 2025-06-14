@@ -125,8 +125,19 @@ body {
     color: var(--primary-color);
 }
 
+/* Navigation */
+.menu-btn {
+    display: none; /* Hide by default on desktop */
+    cursor: pointer;
+    z-index: 1001;
+}
+
 /* Mobile Navigation */
 @media (max-width: 768px) {
+    .menu-btn {
+        display: block; /* Only show on mobile */
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -163,6 +174,22 @@ body {
 
     .nav-links a:hover::before {
         opacity: 1;
+    }
+}
+
+/* Desktop Navigation */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        position: relative;
+        right: 0;
+        height: auto;
+        width: auto;
+        background: none;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 2.5rem;
+        backdrop-filter: none;
     }
 }
 
@@ -1628,5 +1655,148 @@ body {
     }
     .custom-cursor, .cursor-dot {
         display: none;
+    }
+}
+
+/* About Section Responsive Fixes */
+@media (max-width: 768px) {
+    .about-pillars {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .pillar {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 350px;
+    }
+
+    .about-stats {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .about-pillars {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .hero-content h1 {
+        font-size: 2.8rem;
+        padding: 0 15px;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+        padding: 0 20px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Services Cards */
+    .service-card {
+        padding: 25px;
+        margin: 0 15px;
+    }
+
+    /* Portfolio Videos */
+    .portfolio-item video {
+        height: 400px;
+    }
+
+    /* Reviews Section */
+    .review-card {
+        margin: 0 15px;
+        padding: 25px;
+    }
+
+    /* Team Section */
+    .team-member {
+        padding: 25px;
+        text-align: center;
+    }
+
+    .team-member img {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 20px;
+    }
+
+    /* Contact Form */
+    .contact-form {
+        margin: 0 15px;
+    }
+
+    .social-links {
+        padding-right: 0;
+    }
+
+    /* Fixed Audio Button */
+    .media-controls-bottom {
+        bottom: 70px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    /* Improved Scroll to Top */
+    .scroll-top {
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Better Font Sizes */
+    .section-title {
+        font-size: 2rem;
+        padding: 0 15px;
+    }
+
+    /* Add Pull-to-refresh Feel */
+    .loader {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Improved Touch Areas */
+    .btn {
+        padding: 15px 35px;
+        min-width: 200px;
+    }
+}
+
+/* Add Smooth Edge Gradients */
+@media (max-width: 768px) {
+    .portfolio-grid::after,
+    .services-grid::after,
+    .reviews-container::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30px;
+        background: linear-gradient(to top, rgba(18, 18, 18, 1), transparent);
+        pointer-events: none;
+    }
+}
+
+/* Better Navigation on Small Screens */
+@media (max-width: 480px) {
+    .nav-links.active {
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 1.3rem;
+        padding: 15px 0;
     }
 }
